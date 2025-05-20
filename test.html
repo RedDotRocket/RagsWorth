@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RagsWorth Test</title>
+</head>
+<body>
+    <div id="ragsworth-chat"></div>
+    <script src="http://localhost:8000/static/widget.js"></script>
+    <script>
+        new RagsWorth({
+            endpoint: 'http://localhost:8000',
+            containerId: 'ragsworth-chat',
+            theme: {
+                primary: '#007bff',
+                secondary: '#6c757d',
+                background: '#ffffff',
+                text: '#212529'
+            }
+        });
+    </script>
+</body>
+</html> 
