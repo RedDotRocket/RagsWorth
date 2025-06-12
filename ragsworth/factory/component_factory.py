@@ -66,9 +66,6 @@ class ComponentFactory:
         logger.info(f"Configuring vector store of type: {vector_store_type}")
 
         if os.path.exists(vector_store_path):
-            logger.info(f"Loading vector store from {vector_store_path}")
-            logger.debug(f"Directory contents: {os.listdir(vector_store_path)}")
-
             if vector_store_type == "faiss":
                 logger.info("Loading FAISS vector store")
                 vector_store = FAISSVectorStore.load(vector_store_path)

@@ -1,4 +1,4 @@
-from typing import List, Annotated
+from typing import Annotated
 from datetime import timedelta
 
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -16,7 +16,7 @@ router = APIRouter(tags=["authentication"])
 
 def get_current_user_dependency(oauth2_scheme, db: Database):
     """Create a dependency for getting the current user from the token."""
-    
+
     async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
         """Get the current user from the token."""
         try:
@@ -47,12 +47,12 @@ def get_current_user_dependency(oauth2_scheme, db: Database):
                 detail=f"Authentication error: {str(e)}",
                 headers={"WWW-Authenticate": "Bearer"},
             )
-    
+
     return get_current_user
 
 def create_auth_router(db: Database):
     """Create the authentication router with dependencies injected."""
-    
+
     @router.post("/token", response_model=Token)
     async def login_for_access_token(
         form_data: Annotated[OAuth2PasswordRequestForm, Depends()],
@@ -97,7 +97,7 @@ def create_auth_router(db: Database):
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail=f"Error generating token: {str(e)}"
             )
-    
+
     @router.post("/register", response_model=User, status_code=201)
     async def register_user(user: User) -> User:
         """Register a new user."""
@@ -141,5 +141,5 @@ def create_auth_router(db: Database):
             if "already exists" in str(e):
                 raise HTTPException(status_code=409, detail=str(e))
             raise HTTPException(status_code=500, detail=f"Registration failed: {str(e)}")
-    
-    return router 
+
+    return router
