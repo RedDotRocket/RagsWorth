@@ -1,6 +1,6 @@
 <img src="static/images/ragsworth.png" alt="RagsWorth Logo" width="200" />
 
-[![Tests](https://github.com/lukehinds/ragsworth/actions/workflows/test.yml/badge.svg)](https://github.com/lukehinds/ragsworth/actions/workflows/test.yml) ![LangChain Free](https://img.shields.io/badge/LangChain-free-blue)
+[![Tests](https://github.com/lukehinds/ragsworth/actions/workflows/test.yml/badge.svg)]
 
 A spiffingly good, production-ready, secure, and embeddable AI chatbot with Retrieval-Augmented Generation (RAG) capabilities. Built with Python, it supports multiple LLM providers and includes robust PII protection.
 
